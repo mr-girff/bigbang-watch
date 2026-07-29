@@ -222,12 +222,17 @@ def smtp_mail(subject, body):
         return False
 
 
-def notify(subject, body):
-    a = gh_issue(subject, body)
-    b = smtp_mail(subject, body)
-    if not (a or b):
-        print("!! 没有任何可用通知渠道，内容如下：\n" + body)
-    return a or b
+def notify(subject, body, urgent=False):
+    """优先用 channels.py 的多通道分发；没有该文件时退回内置的两条通道。"""
+    try:
+        import channels
+        return bool(channels.broadcast(subject, body, urgent=urgent))
+    except ImportError:
+        a = gh_issue(subject, body)
+        b = smtp_mail(subject, body)
+        if not (a or b):
+            print("!! 没有任何可用通知渠道，内容如下：\n" + body)
+        return a or b
 
 
 # ---------------------------------------------------------------- 主流程
@@ -364,7 +369,7 @@ def main():
     if dry:
         return
     if subject:
-        notify(subject, body)
+        notify(subject, body, urgent=bool(critical))
     st["sent"] = sorted(sent_keys | {a[1] for a in alerts})[-500:]
     save_state(st)
 

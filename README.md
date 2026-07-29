@@ -114,3 +114,67 @@ python3 watch.py             # 正常跑
 | 2026-09-01 起 | 香港站优先购/公售高发期 |
 
 再加一层零成本冗余：`google.com/alerts` 建 `BIGBANG 香港 門票`、`BIGBANG 啟德 開售`，频率选「有结果时」。港媒常在官宣后几分钟出稿，有时比 YG 官网更新还早。
+
+---
+
+## 多用户订阅（v3）
+
+`channels.py` 是多通道分发器。**配了环境变量的通道才启用，没配的自动跳过**，
+任一通道失败不影响其他通道。
+
+### 通道与所需配置
+
+| 通道 | 配置位置 | 变量 | 一对多 |
+|---|---|---|---|
+| ntfy 主题 | Variables | `NTFY_TOPIC` | ✅ 用户零注册 |
+| 微信 PushPlus | Secrets + Variables | `PUSHPLUS_TOKEN` `PUSHPLUS_GROUP` | ✅ 群组推送 |
+| Telegram | Secrets + Variables | `TG_BOT_TOKEN` `TG_CHAT_ID` | ✅ 频道 |
+| GitHub Issue | 内置 | 无需配置 | ❌ 仅自己 |
+| 邮件 Resend | Secrets + Variables | `RESEND_KEY` `MAIL_FROM` | ⚠️ 需自有域名 |
+| 邮件 SMTP | Secrets | `SMTP_HOST/PORT/USER/PASS` | ❌ 只适合发自己 |
+
+设置路径：仓库 → Settings → Secrets and variables → Actions
+（密钥放 **Secrets**，非敏感值放 **Variables**）
+
+### 最省事的开法（2 分钟，零成本）
+
+只加一个 **Variable**：`NTFY_TOPIC` = 一个别人猜不到的名字，例如 `bigbang-hk-x7q2`。
+然后让任何人在 ntfy App 或 `https://ntfy.sh/<你的topic>` 订阅该主题即可。
+无需注册、无需域名、系统级推送、秒级到达。
+
+> 注意：ntfy 主题是公开的，知道名字的人都能订阅**也能发消息**。
+> 用于「广播开票提醒」没问题，别放任何私密内容。
+
+### 邮件订阅者名单
+
+三个来源自动合并去重：
+
+1. `MAIL_TO`（Variables，逗号分隔）—— 一般就是你自己
+2. `subscribers.txt`（仓库里，一行一个邮箱，`#` 注释）
+3. `SUBSCRIBERS_CSV_URL`（Variables）—— Google 表单结果表「发布到网络 → CSV」的链接
+
+这样收集订阅**不需要任何后端**：Google 表单收邮箱 → 发布为 CSV → Actions 每次运行时拉取。
+
+### 订阅落地页
+
+`docs/index.html` 是静态订阅页。启用方法：
+Settings → Pages → Source 选 `main` 分支 `/docs` 目录 → 保存。
+几分钟后可访问 `https://<用户名>.github.io/bigbang-watch/`。
+
+页面里 `FORM_URL` 变量填上 Google 表单链接后，邮箱订阅按钮才会启用；
+留空时按钮自动置灰，引导用户用微信或 ntfy。
+
+### 单独测试通道
+
+```bash
+NTFY_TOPIC=你的topic python3 channels.py
+```
+
+收到一条「通道自检」推送即为成功。
+
+### 关于邮件的实话
+
+个人 Gmail / QQ 邮箱**不要用来群发陌生人**：每天 500 封上限、必进垃圾箱、账号有封禁风险。
+邮件要真的能送达，最低门槛是**自有域名 + SPF/DKIM/DMARC + 正规 ESP**（域名约 ¥70/年）。
+即便全配好，进主收件箱的比例也只有 60–85%。
+微信推送和 ntfy 是 ~99%，且是推送不是邮件——所以本项目把邮件当兜底，不当主通道。

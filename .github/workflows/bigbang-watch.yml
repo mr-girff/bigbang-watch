@@ -35,7 +35,21 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           NOTIFY_USER: ${{ github.repository_owner }}
           FAIL_ON_CRITICAL: "1"
-          # 通知渠道 B（可选）：配了这几个 Secrets 才会额外发一封 SMTP 邮件
+          # 通知渠道 B：一对多广播（推荐，用户零注册、秒级到达、不进垃圾箱）
+          NTFY_TOPIC:      ${{ vars.NTFY_TOPIC }}
+          PUSHPLUS_TOKEN:  ${{ secrets.PUSHPLUS_TOKEN }}
+          PUSHPLUS_GROUP:  ${{ vars.PUSHPLUS_GROUP }}
+          TG_BOT_TOKEN:    ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID:      ${{ vars.TG_CHAT_ID }}
+          # 通知渠道 C：邮件订阅者（Resend 需自有域名才有送达保障）
+          RESEND_KEY:          ${{ secrets.RESEND_KEY }}
+          MAIL_FROM:           ${{ vars.MAIL_FROM }}
+          SUBSCRIBERS_CSV_URL: ${{ vars.SUBSCRIBERS_CSV_URL }}
+          # Cloudflare Worker 订阅中转（前端收集到的名单从这里拉）
+          SUBSCRIBERS_URL:     ${{ vars.SUBSCRIBERS_URL }}
+          SUBSCRIBERS_KEY:     ${{ secrets.SUBSCRIBERS_KEY }}
+          UNSUB_URL:           ${{ vars.UNSUB_URL }}
+          # 通知渠道 D（可选）：个人邮箱 SMTP，只适合发给自己
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
