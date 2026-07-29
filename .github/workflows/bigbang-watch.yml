@@ -1,0 +1,60 @@
+name: BIGBANG HK watch
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"        # 每 15 分钟。GitHub 的 cron 是「尽力而为」，可能延迟 5-20 分钟
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "留空=正常检查；test=发一条测试提醒；reset=清空基线重新开始"
+        required: false
+        default: ""
+
+permissions:
+  contents: write                 # 写回 state.json
+  issues: write                   # 开 issue 来触发 GitHub 给你发邮件
+
+concurrency:
+  group: bigbang-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: reset 基线（仅手动选 reset 时）
+        if: github.event.inputs.mode == 'reset'
+        run: rm -f state.json
+
+      - name: 检查
+        env:
+          # 通知渠道 A：GitHub Issue -> GitHub 自动发邮件到你账号邮箱。零配置。
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          NOTIFY_USER: ${{ github.repository_owner }}
+          FAIL_ON_CRITICAL: "1"
+          # 通知渠道 B（可选）：配了这几个 Secrets 才会额外发一封 SMTP 邮件
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_TO:   ${{ secrets.MAIL_TO }}
+          WATCH_CITY: "HONG KONG"
+        run: |
+          if [ "${{ github.event.inputs.mode }}" = "test" ]; then
+            python3 watch.py --test
+          else
+            python3 watch.py
+          fi
+
+      - name: 保存状态 + 心跳
+        if: always()
+        run: |
+          date -u +%Y-%m-%d > last-check.txt   # 只写日期，所以每天最多 1 个 commit
+          git config user.name  "bigbang-watch"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json last-check.txt 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "watch: $(date -u +%F' '%T)Z"
+          git push || true
