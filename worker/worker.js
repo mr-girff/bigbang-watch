@@ -251,6 +251,10 @@ function page(env) {
   const topic = env.NTFY_TOPIC || "";
   const srv = (env.NTFY_SERVER || "https://ntfy.sh").replace(/\/$/, "");
   const ppQR = env.PUSHPLUS_QR || "";
+  // 微信通道只有配了二维码才真的能用。没配就把默认 tab 让给「手机推送」，
+  // 别让用户第一眼看到一个「正在配置中」的死功能。
+  const wxOK = !!ppQR;
+  const on = (k) => (wxOK ? k === "wx" : k === "ntfy") ? " on" : "";
   return `<!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="utf-8">
@@ -315,13 +319,13 @@ footer a{color:#5a616b}
 
 <h2>选一种接收方式</h2>
 <div class="tabs">
-  <div class="tab on" data-t="wx">微信</div>
-  <div class="tab" data-t="ntfy">手机推送</div>
+  <div class="tab${on("ntfy")}" data-t="ntfy">手机推送${wxOK ? "" : " ★"}</div>
+  <div class="tab${on("wx")}" data-t="wx">微信</div>
   <div class="tab" data-t="mail">邮箱</div>
 </div>
 
 <!-- 微信 -->
-<div class="pane on" id="p-wx"><div class="card">
+<div class="pane${on("wx")}" id="p-wx"><div class="card">
   ${
     ppQR
       ? `<p class="hint" style="margin-top:0">扫码关注后即可收到微信推送，无需装任何 App。</p>
@@ -337,7 +341,7 @@ footer a{color:#5a616b}
 </div></div>
 
 <!-- ntfy -->
-<div class="pane" id="p-ntfy"><div class="card">
+<div class="pane${on("ntfy")}" id="p-ntfy"><div class="card">
   <p class="hint" style="margin-top:0">系统级推送，秒级到达，不会像邮件被丢进垃圾箱。免注册。</p>
   <p><code>${topic || "（未配置）"}</code></p>
   <a class="btn2" href="${srv}/${topic}" target="_blank" rel="noopener">① 网页版直接订阅（最快）</a>

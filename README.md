@@ -178,3 +178,56 @@ NTFY_TOPIC=你的topic python3 channels.py
 邮件要真的能送达，最低门槛是**自有域名 + SPF/DKIM/DMARC + 正规 ESP**（域名约 ¥70/年）。
 即便全配好，进主收件箱的比例也只有 60–85%。
 微信推送和 ntfy 是 ~99%，且是推送不是邮件——所以本项目把邮件当兜底，不当主通道。
+
+---
+
+## 订阅前端（Cloudflare Worker）
+
+**订阅地址：https://bigbang-hk.yuezemaoyi.workers.dev/**
+
+粉丝打开就能订阅，三种方式：手机推送（ntfy，现在就能用）、微信（需先配 PushPlus 二维码）、邮箱。
+名单存在 Cloudflare KV，GitHub Actions 每次运行时自动拉取。
+
+源码在 `worker/worker.js`，单文件无构建。
+
+### 路由
+
+| 路由 | 权限 | 用途 |
+|---|---|---|
+| `GET /` | 公开 | 订阅页 |
+| `GET /api/stats` | 公开 | 订阅人数（页面社会证明用） |
+| `POST /api/subscribe` | 公开 | 提交订阅，幂等，同 IP 20 次/10 分钟 |
+| `GET /u/<token>` | 公开 | 一键退订 |
+| `GET /api/subscribers` | 需 ADMIN_KEY | 导出名单 `?format=json\|csv\|emails` |
+| `POST /api/broadcast` | 需 ADMIN_KEY | 转发到 ntfy 广播 |
+
+### 拿自己的订阅名单
+
+```bash
+# CSV（含微信号、城市、地区、订阅时间）
+curl -H "Authorization: Bearer <ADMIN_KEY>" \
+  "https://bigbang-hk.yuezemaoyi.workers.dev/api/subscribers?format=csv" -o subs.csv
+```
+
+### 重新部署 Worker
+
+```bash
+npx wrangler deploy worker/worker.js --name bigbang-hk \
+  --compatibility-date 2025-01-01 \
+  --kv-namespace SUBS=<KV_ID>
+```
+或用 Cloudflare API 直接 PUT `/accounts/<acc>/workers/scripts/bigbang-hk`（本项目用的是这条）。
+
+### 想开微信通道
+
+1. 到 https://www.pushplus.plus 微信扫码登录，拿 token
+2. 建一个「一对多群组」，拿群组编码，把群组二维码图片传到任意图床
+3. Worker 加 plain_text 绑定 `PUSHPLUS_QR`=二维码图片地址
+4. 仓库加 Secret `PUSHPLUS_TOKEN`、Variable `PUSHPLUS_GROUP`
+
+配好后订阅页的「微信」会自动变成默认 tab。
+
+### 关于微信号
+
+微信官方**没有**任何接口允许凭微信号给陌生人发消息。页面上收集微信号只是联系资料，
+真正能推到微信的只有「用户主动关注服务号」这一条路。别把微信号当投递通道。
