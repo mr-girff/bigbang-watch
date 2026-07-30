@@ -1,0 +1,48 @@
+name = "bigbang-hk"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+workers_dev = true
+
+# ---------------------------------------------------------------- 定时器
+# 这一行是整个 v2 的核心。CF 的 cron 是分钟级、准点执行。
+# 对比：同一个任务放在 GitHub Actions 上写 */15，实测真实间隔 65–90 分钟。
+#
+# 开票临近时把 "*/5" 改成 "* * * * *"（每分钟）再 deploy 一次即可，
+# 免费额度下每天 1440 次触发也用不完 10 万请求/日。
+[triggers]
+crons = ["*/5 * * * *"]
+
+# ---------------------------------------------------------------- 存储
+# 订阅者 / 快照 / 告警 / 送达日志 / 去重指纹全在这里。
+# 前缀：s:订阅  t:退订token  v:确认token  snap:快照  fp:去重  a:告警  d:送达  rl:限流  hb:心跳
+#
+#   npx wrangler kv namespace create SUBS
+# 把输出的 id 填进下面。如果你 v1 已经建过 SUBS，直接用原来的 id，订阅者不会丢。
+[[kv_namespaces]]
+binding = "SUBS"
+id = "PUT_YOUR_KV_NAMESPACE_ID_HERE"
+
+# ---------------------------------------------------------------- 明文变量
+[vars]
+SITE_ORIGIN = "https://bigbang-hk.yuezemaoyi.workers.dev"  # 换成自有域名后改这里
+MAIL_FROM = "alert@example.com"          # 必须是已 onboard 到 CF Email Service / Resend 的域名
+MAIL_FROM_NAME = "BIGBANG HK Watch"
+MAIL_PRIMARY = "cf"                      # "cf" = 主用 Cloudflare Email；"resend" = 主用 Resend
+CRON_LABEL = "5 min"
+WATCH_SINCE = "2026-07-29T16:00:00Z"     # 站点上「已持续监控 N 天」从这里算
+# 必须和 v1 现网一致：v1 的订阅页已经把这个 topic 名字发给用户了，
+# 他们的 ntfy App 订的就是它。改名等于让老用户静默失联，而他们不会知道。
+NTFY_TOPIC = "bigbang-hk-75afdc"         # 免费层公共广播；注意 topic 是公开 URL
+NTFY_SERVER = "https://ntfy.sh"
+CF_ACCOUNT_ID = "PUT_YOUR_CF_ACCOUNT_ID"
+
+# ---------------------------------------------------------------- 机密
+# 全部用 `npx wrangler secret put <NAME>`，不要写进这个文件（这文件要进 git）。
+#
+#   ADMIN_KEY          管理接口口令，自己随便生成一串
+#   CF_EMAIL_TOKEN     Cloudflare API Token，权限只勾 Email Sending: Send
+#                      （发给任意收件人需要 Workers Paid US$5/月；Free 计划只能发给账号内已验证地址）
+#   RESEND_KEY         Resend API Key，邮件备用通道（免费 3000/月、100/天）
+#   TG_BOT_TOKEN       BotFather 给的 token
+#   TG_WEBHOOK_SECRET  自己生成一串，用来当 webhook 路径，防止别人乱调
+#   OPS_TG_CHAT        你自己的 Telegram chat id，运维告警发这里

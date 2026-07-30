@@ -1,0 +1,75 @@
+# 独立冗余链路。它不再是主监控 —— 主监控是 Cloudflare Cron Trigger。
+#
+# 为什么降级：这个仓库实测过，写 */15 的 cron，7 次 schedule 事件真实间隔是
+# 65–90 分钟，GitHub 对免费仓库的定时任务是「尽力而为」，大量被丢弃。
+# 所以它只干两件 CF 干不了的事：
+#   1. 从 GitHub 的网络出口探测 Worker 是否还活着（CF 自己挂了不会自己报警）
+#   2. CF 静默超过阈值就开 Issue + 强制触发一次检查
+name: backup heartbeat
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    # 没配 WORKER_ORIGIN 就整个跳过。否则 v2 还没部署时它会探到空地址、
+    # 判定「静默」，然后给你开一个纯属误报的 Issue。
+    # 配置：仓库 Settings → Variables → WORKER_ORIGIN
+    if: vars.WORKER_ORIGIN != ''
+    steps:
+      - name: Probe /api/status
+        id: p
+        env:
+          ORIGIN: ${{ vars.WORKER_ORIGIN }}
+        run: |
+          set -o pipefail
+          curl -sS --max-time 20 "$ORIGIN/api/status" -o s.json -w '%{http_code}\n' > code.txt || echo 000 > code.txt
+          echo "code=$(cat code.txt)" >> "$GITHUB_OUTPUT"
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json,os
+          try: d=json.load(open('s.json'))
+          except Exception: d={}
+          stale=d.get('stale_minutes')
+          print(f"stale={stale if stale is not None else 9999}")
+          print(f"status={(d.get('watch') or {}).get('tourStatus','?')}")
+          print(f"errors={len(d.get('errors') or [])}")
+          PY
+          cat s.json | head -c 600 || true
+
+      - name: Force a run if Cloudflare cron went quiet
+        if: steps.p.outputs.code != '200' || steps.p.outputs.stale > 20
+        env:
+          ORIGIN: ${{ vars.WORKER_ORIGIN }}
+          ADMIN_KEY: ${{ secrets.ADMIN_KEY }}
+        run: |
+          curl -sS -X POST --max-time 60 -H "authorization: Bearer $ADMIN_KEY" "$ORIGIN/api/run" | head -c 800
+
+      - name: Open an issue
+        if: steps.p.outputs.code != '200' || steps.p.outputs.stale > 45
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "监控静默：Cloudflare cron 可能没在跑";
+            const body = [
+              `HTTP: ${{ steps.p.outputs.code }}`,
+              `stale_minutes: ${{ steps.p.outputs.stale }}`,
+              `watch.tourStatus: ${{ steps.p.outputs.status }}`,
+              `parse errors: ${{ steps.p.outputs.errors }}`,
+              "",
+              "已尝试通过 /api/run 强制触发一次。请检查 Cloudflare → Workers → bigbang-hk → Cron Triggers / Logs。",
+            ].join("\n");
+            const { data } = await github.rest.issues.listForRepo({
+              ...context.repo, state: "open", labels: "monitor-down", per_page: 1,
+            });
+            if (data.length) {
+              await github.rest.issues.createComment({ ...context.repo, issue_number: data[0].number, body });
+            } else {
+              await github.rest.issues.create({ ...context.repo, title, body, labels: ["monitor-down"] });
+            }

@@ -1,233 +1,152 @@
-# BIGBANG 香港站票务监控
+# BIGBANG HK 开票监控 v2
 
-每 15 分钟自动检查，一有动静就在本仓库开 Issue 并 @你 —— GitHub 会把邮件发到 `yuezemaoyi@gmail.com`。
-**跑在 GitHub 服务器上，你电脑不用开机，不需要配置任何邮箱。**
-
-已部署完成，正在运行。你不需要再做任何操作。
-
----
-
-## 监控什么
-
-| 源 | 监控点 | 告警 |
-|---|---|---|
-| **YG 官方巡演页** | `HONG KONG` 行的 `COMING SOON` → `GET TICKETS`；开演时间从 `11.13.(FRI) - 15.(SUN)` 变成具体钟点 | 🔴 附购票链接、详情页、各场开演时间 |
-| **b.stage `/tag/SURVEY`** | 出现标题含 `HONG KONG` / `KAI TAK` 的 SURVEY；或该 SURVEY 从「未开放」变「开放中」 | 🔴 附**登记窗口起止时间（已转北京时间+星期）** |
-| **b.stage `/tag/NOTICE`** | 出现含香港的票务公告 | 🔴 |
-| **b.stage `sitemap.xml`** | 新页面出现 | 🟡 附可点击的 `/surveys/<id>` 链接 |
-
-其他城市的 SURVEY 出现时只发 🟡（让你知道脚本活着，也能提前看到别站的时间规律）。
-
-### 为什么能不用浏览器就抓到 b.stage
-
-b.stage 是 Next.js 前端应用，普通 `curl` 抓首页拿不到内容。但：
-
-- `/tag/SURVEY` 是**服务端渲染**的，全部条目就在 HTML 的 `__NEXT_DATA__` JSON 里
-- 那份 JSON 里有 `title`、`inProgress`、`progressStartAt`、`progressEndAt` —— 所以能直接告诉你**登记窗口几点开到几点、现在是否开放**
-- `sitemap.xml` 是纯 XML，能补上可点击的真实链接
-
-所以整套只用 Python 标准库，塞进免费的 GitHub Actions 里跑。
-
----
-
-## 提醒怎么送到邮箱
-
-两条**互相独立**的通道，不依赖任何 SMTP 配置：
-
-1. **GitHub Issue + @提及** —— Actions 用内置 `GITHUB_TOKEN` 开 issue 并 @你。@提及一定会产生通知，仓库也已显式设为 Watching。
-2. **workflow 失败通知** —— 检测到 🔴 时脚本会故意让 job 变红（`FAIL_ON_CRITICAL=1`），GitHub 另发一封「workflow failed」邮件。因为有去重，同一件事只会红一次。
-
-已验证：Issue #1（测试）、Issue #2（基线）均成功创建。
-
-### 可选：额外再发一封自己的 SMTP 邮件
-
-不需要，但如果你以后想加，在 Settings → Secrets and variables → Actions 里加：
-`SMTP_HOST` `SMTP_PORT` `SMTP_USER` `SMTP_PASS` `MAIL_TO`。
-Gmail 需先开两步验证再生成「应用专用密码」（16 位），不能用登录密码。
-
----
-
-## 你会收到什么
+香港站（啟德體育園，2026.11.13–15）门票动态监控。Cloudflare Worker 单体，三语言站点，多通道推送。
 
 ```
-标题：🔴 BIGBANG HONG KONG 有动静了（2 条重要）
-
-🔴 [CRITICAL] b.stage 新 SURVEY（命中 HONG KONG！）
-[HONG KONG] BIGBANG V.I.P MEMBERSHIP PRESALE SURVEY FOR ... IN HONG KONG
-登记窗口: 2026-08-06 10:00 CST（周四）  ->  2026-08-10 01:00 CST（周一）
-现在是否开放: ✅ 开放中
-https://bigbang.bstage.in/tag/SURVEY
-
-🔴 [CRITICAL] HONG KONG 票务开了！COMING SOON 消失了
-购票链接: https://premier.hkticketing.com/...
-场次时间: 2026.11.13.(FRI) 8:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM
-
---- 收到这封邮件后立刻做 ---
-1. 打开 https://bigbang.bstage.in/tag/SURVEY 完成 [HONG KONG] SURVEY 登记
-   （窗口通常只有 3-5 天，不登记 = 会员码作废，进不了优先购）
-2. 记下会员优先购 / 公开发售的日期时间，马上设手机闹钟
-3. 注册香港票务平台账号，做完手机+邮箱验证，绑好 Visa/Master 并小额试刷
-4. 查取票方式：如果要当天中午前取实体票，深圳往返行程要相应调整
-5. 准备好所有人的港澳通行证号（实名制，买票后改不了名）
+src/sources.js   抓取 + 解析 3 个源（YG 巡演页 / b.stage SURVEY / b.stage NOTICE）
+src/detect.js    变化检测、严重度分级、fingerprint 去重
+src/notify.js    邮件双通道（CF Email → Resend）、Telegram、PushPlus、ntfy、送达日志
+src/i18n.js      简体 / 繁体（香港用词）/ 英文；时间三写 HKT+KST+倒计时
+src/site.js      三语言站点（分路径，可被搜索引擎收录三份）
+src/index.js     路由 + scheduled()（Cloudflare Cron Trigger）
+test/local.mjs   端到端自测，不需要任何账号
+DEPLOY.md        部署步骤
 ```
+
+部署看 `DEPLOY.md`。自测：`deno run --allow-net --allow-read test/local.mjs`（44 项，现网数据全绿）。
 
 ---
 
-## 手动操作
+## 当前状态（读之前先看这段）
 
-仓库 → **Actions** → 左侧 `BIGBANG HK watch` → **Run workflow**：
-
-| mode | 作用 |
+| | 状态 |
 |---|---|
-| 留空 | 正常检查一次 |
-| `test` | 发一条测试提醒，验证邮件链路 |
-| `reset` | 清空基线重新开始（会重新发一次"已启动"提醒） |
+| v2 代码 | 已进仓库，44 项自测全绿 |
+| v2 是否在跑 | **没有。** 需要你执行一次 `wrangler deploy`（要你的 CF 凭据，我没有） |
+| v1（`watch.py` + Actions cron） | **仍在跑，故意留着。** v2 没上线之前删掉它 = 监控真空 |
+
+切换顺序不能反：**先 `wrangler deploy` 并验收通过，再停 v1。** 步骤见 `DEPLOY.md` 最后一节。
+
+v1 的文件保持原位（`watch.py` / `channels.py` / `state.json` / `worker/worker.js` / 那个 workflow），
+一个字没动 —— 唯一在守香港场的东西不能因为整理目录而停掉。v1 的说明搬到 `legacy/README-v1.md`。
 
 ---
 
-## 本地跑（可选）
+## 一、为什么有 v2：GitHub Actions 的定时器不可用
 
-```bash
-python3 watch.py --dry-run   # 只检查，不发通知不写状态
-python3 watch.py             # 正常跑
-```
-只用标准库，Python 3.8+ 即可，不用 `pip install`。
+不是配置问题，是实测数据。同一个仓库，workflow 写的是每 15 分钟：
 
----
-
-## 已知限制
-
-1. **GitHub cron 是尽力而为**，高峰可能延迟 5–20 分钟。对"公告出现"（窗口 3–5 天）完全够用；但**抢票那一刻不要靠它**，拿到日期后自己设手机闹钟。
-2. **邮件可能进 Gmail 的「促销」或垃圾箱**。去把 `notifications@github.com` 加到通讯录/白名单。
-3. **超 60 天无提交，GitHub 会自动停掉 schedule** —— 脚本每天提交一次 `last-check.txt` 心跳规避。
-4. **网页结构变了会失效** —— 抓不到 `HONG KONG` 那一行或 `__NEXT_DATA__` 时会发「⚠️ 抓取异常」提醒，不会默默死掉。
-
----
-
-## 脚本管不了的事，去日历上设死
-
-| 日期 | 事项 |
+| schedule 事件时间 (UTC) | 距上次 |
 |---|---|
-| **2026-08-25** | ⚠️ **6th V.I.P 会员报名 8/31 截止**，最后确认已入会 |
-| 2026-08-28 | 曼谷站会员优先购（香港的备选方案，票价更低） |
-| 2026-08-30 | 曼谷站公开发售 |
-| 2026-09-01 起 | 香港站优先购/公售高发期 |
+| 19:05 | — |
+| 20:16 | 71 min |
+| 21:25 | 69 min |
+| 22:28 | 63 min |
+| 23:31 | 63 min |
+| 01:01 | 90 min |
 
-再加一层零成本冗余：`google.com/alerts` 建 `BIGBANG 香港 門票`、`BIGBANG 啟德 開售`，频率选「有结果时」。港媒常在官宣后几分钟出稿，有时比 YG 官网更新还早。
+**真实间隔 63–90 分钟，应有的 5/6 次触发被丢弃。** GitHub 对免费仓库的 cron 是低优先级、可丢弃的。
+香港优先购问卷的窗口只开 4–5 天，用 70 分钟粒度的心跳去守它是不成立的。
+
+v2 把抓取搬进 Worker，用 Cloudflare Cron Trigger（分钟级、准点）。GitHub 降级为独立探针：
+只负责「从 CF 之外的网络确认 Worker 还活着」，静默就强制触发 + 开 Issue。
 
 ---
 
-## 多用户订阅（v3）
+## 二、解析规则（2026-07-30 用真实页面逐条验证）
 
-`channels.py` 是多通道分发器。**配了环境变量的通道才启用，没配的自动跳过**，
-任一通道失败不影响其他通道。
+### 1. YG 巡演页 `artist.ygfamily.com/.../worldtour/index.html`
 
-### 通道与所需配置
+服务端渲染纯 HTML，无需 JS。每城一个 `<div class="row">`：
 
-| 通道 | 配置位置 | 变量 | 一对多 |
+```html
+<div class="item1">HONG KONG</div>          <!-- 城市 -->
+<div class="item2">KAI TAK STADIUM</div>    <!-- 场馆 -->
+<div class="item4">2026.11.13.(FRI) - 15.(SUN)</div>
+<div class="buyticket"><button3> COMING SOON </button3></div>
+```
+
+**坑**：单一售票商是 `.buyticket`；多入口（分场次、或 DOMESTIC+GLOBAL 两个购票商）会变成
+`<div class="t2">` 并带 `<small>09.04.(FRI)</small>` 标签。第一版按 `.buyticket` 写死，
+GOYANG 和 OAKLAND 就被误判成 UNKNOWN。香港是 3 天连演，开票时几乎必然是 `t2` 形态 ——
+所以解析器不认 class，直接扫 `.right` 里所有 `a.btn-buy`。19 个城市全部解析正确。
+
+### 2. b.stage `/tag/SURVEY`、`/tag/NOTICE`
+
+也是 SSR HTML（没有 `__NEXT_DATA__`，别去找）：`<a href="/surveys/<24位hex>">[CITY] TITLE</a>`。
+
+### 3. b.stage `/surveys/<id>` —— 精确窗口
+
+详情页内嵌 JSON 里有：
+
+```json
+"progressStatus":"IN_PROGRESS","progressStartAt":"2026-07-29T02:00:00Z","progressEndAt":"2026-08-02T17:00:00Z"
+```
+
+这是整个项目最值钱的字段：**能拿到问卷的精确开关时间**，不用等页面文案。
+官网只给 KST，我们换算成 HKT 并做倒计时 —— 这是产品对粉丝的实际价值。
+
+---
+
+## 三、抓出来的情报：问卷是按批次放的，不是一城一开
+
+| 批次 | 放出时间 (HKT / KST) | 城市 | 窗口长度 |
 |---|---|---|---|
-| ntfy 主题 | Variables | `NTFY_TOPIC` | ✅ 用户零注册 |
-| 微信 PushPlus | Secrets + Variables | `PUSHPLUS_TOKEN` `PUSHPLUS_GROUP` | ✅ 群组推送 |
-| Telegram | Secrets + Variables | `TG_BOT_TOKEN` `TG_CHAT_ID` | ✅ 频道 |
-| GitHub Issue | 内置 | 无需配置 | ❌ 仅自己 |
-| 邮件 Resend | Secrets + Variables | `RESEND_KEY` `MAIL_FROM` | ⚠️ 需自有域名 |
-| 邮件 SMTP | Secrets | `SMTP_HOST/PORT/USER/PASS` | ❌ 只适合发自己 |
+| 1 | 2026-06-16 22:00 / 23:00 | OAKLAND、EAST RUTHERFORD、LONDON、PARIS | 5 天 |
+| 2 | 2026-07-22 05:00 / 06:00 | SYDNEY | 4 天 |
+| 3 | 2026-07-29 10:00 / 11:00 | TAIPEI、SINGAPORE、BANGKOK | 4 天 |
 
-设置路径：仓库 → Settings → Secrets and variables → Actions
-（密钥放 **Secrets**，非敏感值放 **Variables**）
+批次间隔 35 天 → 8 天，没有固定周期。但方向很清楚：
 
-### 最省事的开法（2 分钟，零成本）
+- 全 19 城里只剩 **HANOI（10.24）和 HONG KONG（11.13–15）** 还是 `COMING SOON`
+- 第 3 批已经覆盖到 11.07 的曼谷，**香港只比它晚 6 天，极可能落在下一批**
+- 每个窗口只开 **4–5 天**
 
-只加一个 **Variable**：`NTFY_TOPIC` = 一个别人猜不到的名字，例如 `bigbang-hk-x7q2`。
-然后让任何人在 ntfy App 或 `https://ntfy.sh/<你的topic>` 订阅该主题即可。
-无需注册、无需域名、系统级推送、秒级到达。
-
-> 注意：ntfy 主题是公开的，知道名字的人都能订阅**也能发消息**。
-> 用于「广播开票提醒」没问题，别放任何私密内容。
-
-### 邮件订阅者名单
-
-三个来源自动合并去重：
-
-1. `MAIL_TO`（Variables，逗号分隔）—— 一般就是你自己
-2. `subscribers.txt`（仓库里，一行一个邮箱，`#` 注释）
-3. `SUBSCRIBERS_CSV_URL`（Variables）—— Google 表单结果表「发布到网络 → CSV」的链接
-
-这样收集订阅**不需要任何后端**：Google 表单收邮箱 → 发布为 CSV → Actions 每次运行时拉取。
-
-### 订阅落地页
-
-`docs/index.html` 是静态订阅页。启用方法：
-Settings → Pages → Source 选 `main` 分支 `/docs` 目录 → 保存。
-几分钟后可访问 `https://<用户名>.github.io/bigbang-watch/`。
-
-页面里 `FORM_URL` 变量填上 Google 表单链接后，邮箱订阅按钮才会启用；
-留空时按钮自动置灰，引导用户用微信或 ntfy。
-
-### 单独测试通道
-
-```bash
-NTFY_TOPIC=你的topic python3 channels.py
-```
-
-收到一条「通道自检」推送即为成功。
-
-### 关于邮件的实话
-
-个人 Gmail / QQ 邮箱**不要用来群发陌生人**：每天 500 封上限、必进垃圾箱、账号有封禁风险。
-邮件要真的能送达，最低门槛是**自有域名 + SPF/DKIM/DMARC + 正规 ESP**（域名约 ¥70/年）。
-即便全配好，进主收件箱的比例也只有 60–85%。
-微信推送和 ntfy 是 ~99%，且是推送不是邮件——所以本项目把邮件当兜底，不当主通道。
+所以「多语言 / 好看 / 收费」全都排在「心跳可靠」之后。
 
 ---
 
-## 订阅前端（Cloudflare Worker）
+## 四、告警分级
 
-**订阅地址：https://bigbang-hk.yuezemaoyi.workers.dev/**
-
-粉丝打开就能订阅，三种方式：手机推送（ntfy，现在就能用）、微信（需先配 PushPlus 二维码）、邮箱。
-名单存在 Cloudflare KV，GitHub Actions 每次运行时自动拉取。
-
-源码在 `worker/worker.js`，单文件无构建。
-
-### 路由
-
-| 路由 | 权限 | 用途 |
+| 级别 | 触发 | 动作 |
 |---|---|---|
-| `GET /` | 公开 | 订阅页 |
-| `GET /api/stats` | 公开 | 订阅人数（页面社会证明用） |
-| `POST /api/subscribe` | 公开 | 提交订阅，幂等，同 IP 20 次/10 分钟 |
-| `GET /u/<token>` | 公开 | 一键退订 |
-| `GET /api/subscribers` | 需 ADMIN_KEY | 导出名单 `?format=json\|csv\|emails` |
-| `POST /api/broadcast` | 需 ADMIN_KEY | 转发到 ntfy 广播 |
+| CRITICAL | 香港问卷出现 / 状态转 IN_PROGRESS / 官网挂出购票链接 / 香港票务公告发布 | 推所有订阅者，按各自语言 |
+| HIGH | 问卷时间被改、官网链接更新、香港整行从巡演表消失 | 推所有订阅者 |
+| INFO | 其它城市新问卷（判断批次节奏用）、非香港公告 | 只进看板 + 通知运维 |
+| ERROR | 抓取超时、HTTP 非 200、解析结果异常 | 只通知运维 |
 
-### 拿自己的订阅名单
+`ERROR` 单独存在，是因为**静默漏报比误报危险得多**：b.stage 改版后如果解析器安静地返回空数组，
+系统会以为「香港还没动静」。所以解析失败本身就是告警。
 
-```bash
-# CSV（含微信号、城市、地区、订阅时间）
-curl -H "Authorization: Bearer <ADMIN_KEY>" \
-  "https://bigbang-hk.yuezemaoyi.workers.dev/api/subscribers?format=csv" -o subs.csv
-```
+每条告警有稳定 fingerprint，写 KV 去重，同一件事只发一次。首次运行只建基线，不会把 19 城的历史公告一次性轰给用户。
 
-### 重新部署 Worker
+---
 
-```bash
-npx wrangler deploy worker/worker.js --name bigbang-hk \
-  --compatibility-date 2025-01-01 \
-  --kv-namespace SUBS=<KV_ID>
-```
-或用 Cloudflare API 直接 PUT `/accounts/<acc>/workers/scripts/bigbang-hk`（本项目用的是这条）。
+## 五、从 v1 迁移：三个会「静默丢用户」的坑
 
-### 想开微信通道
+现网 v1 Worker `/api/stats` 报的是 `{"count":2,"email":2,"wechat":1}` —— 有真实订阅者。
+v2 换掉整个 Worker，以下三处如果不处理，用户不会看到任何报错，只是开票时**一封都收不到**：
 
-1. 到 https://www.pushplus.plus 微信扫码登录，拿 token
-2. 建一个「一对多群组」，拿群组编码，把群组二维码图片传到任意图床
-3. Worker 加 plain_text 绑定 `PUSHPLUS_QR`=二维码图片地址
-4. 仓库加 Secret `PUSHPLUS_TOKEN`、Variable `PUSHPLUS_GROUP`
+| 坑 | 后果 | 处理 |
+|---|---|---|
+| v1 记录没有 `status` 字段，只有 `unsub` 布尔 | v2 到处用 `status === "active"` 过滤 → 老订阅者被整体过滤掉 | `normalize()` 在读取时补 `status`（`unsub:true` → `unsub`，否则 `active`），并打 `legacy` 标记 |
+| KV namespace 建了新的 | 订阅者、退订 token、去重指纹全部留在旧 namespace 里 | `wrangler.toml` 必须填 **v1 那个 SUBS 的 id**，别 create 新的 |
+| `NTFY_TOPIC` 改了名 | v1 订阅页已经把 topic 名字发给用户，他们 App 里订的是旧名字，改名即失联 | 锁定成现网的 `bigbang-hk-75afdc` |
 
-配好后订阅页的「微信」会自动变成默认 tab。
+订阅 id 用的还是 v1 的 `sha256(email).slice(0,24)`，所以老用户在 v2 页面重新提交同一个邮箱
+会命中同一条记录，不会重复、也不会被降级成「待确认」。v1 发出去的 `/u/<token>` 退订链接继续有效。
 
-### 关于微信号
+双向确认**不追溯**老用户：那 2 个人是自己在 v1 页面提交的，而现在还没有可靠发信通道，
+追溯要求他们再点一次确认信等于直接把他们踢出名单。新订阅一律走确认。
 
-微信官方**没有**任何接口允许凭微信号给陌生人发消息。页面上收集微信号只是联系资料，
-真正能推到微信的只有「用户主动关注服务号」这一条路。别把微信号当投递通道。
+上面每一条都有对应测试（`test/local.mjs` 第 5b 节，9 项），不是靠读代码保证的。
+
+---
+
+## 六、合规
+
+- 邮箱订阅**双向确认**（否则任何人能把别人邮箱填进来）
+- 每封邮件带 `List-Unsubscribe` + 一键退订链接，退订即时生效
+- 每次投递写送达日志（`d:` 前缀，90 天），这是「5 分钟必达否则退款」这条承诺的技术前提
+- 抓取 5 分钟一次、带可联系的 User-Agent、只取公开页面
+- 页面只用事实数据（城市/场馆/日期/状态/窗口），不搬官方海报、艺人照、logo，页脚有免责声明
