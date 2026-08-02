@@ -128,7 +128,7 @@
       {
         "end": "2026-08-02T17:00:00Z",
         "id": "6a5dbb300c6d7f6fa32b180d",
-        "in_progress": true,
+        "in_progress": false,
         "start": "2026-07-29T02:00:00Z",
         "title": "[BANGKOK] BIGBANG V.I.P MEMBERSHIP PRESALE SURVEY FOR BIGBANG 2026-2027 WORLD TOUR IN BANGKOK"
       },
@@ -190,7 +190,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-03 00:11:21 CST",
+  "updated_at": "2026-08-03 01:14:42 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
