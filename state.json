@@ -8,6 +8,8 @@
     "sm/contents/6a713bc32c67411c1ac225f5",
     "sm/contents/6a7141d02c67411c1ac225fa",
     "sm/contents/6a7147b90ac6ba17adcb7c4b",
+    "sm/contents/6a741b8c0ac6ba17adcb7db5",
+    "sm/contents/6a741bdb0ac6ba17adcb7db9",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
@@ -39,6 +41,8 @@
     "/contents/6a713bc32c67411c1ac225f5",
     "/contents/6a7141d02c67411c1ac225fa",
     "/contents/6a7147b90ac6ba17adcb7c4b",
+    "/contents/6a741b8c0ac6ba17adcb7db5",
+    "/contents/6a741bdb0ac6ba17adcb7db9",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
     "/surveys/6a2ff295dbf9d3381c67aac7",
@@ -224,7 +228,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-06 12:29:35 CST",
+  "updated_at": "2026-08-06 15:18:53 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
