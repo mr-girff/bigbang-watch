@@ -2,6 +2,9 @@
   "sent": [
     "NOTICE-new-6a698e428d4b2134eec839bb",
     "NOTICE-new-6a7141d0a2b5b94c2d0a0b9a",
+    "NOTICE-new-6a741b8d2d7054452231b477",
+    "NOTICE-new-6a741bdb2d7054452231b479",
+    "NOTICE-new-6a753ac6944cbd7f7e2e699d",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
@@ -10,6 +13,7 @@
     "sm/contents/6a7147b90ac6ba17adcb7c4b",
     "sm/contents/6a741b8c0ac6ba17adcb7db5",
     "sm/contents/6a741bdb0ac6ba17adcb7db9",
+    "sm/contents/6a753ac60ac6ba17adcb7dfd",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
@@ -43,6 +47,7 @@
     "/contents/6a7147b90ac6ba17adcb7c4b",
     "/contents/6a741b8c0ac6ba17adcb7db5",
     "/contents/6a741bdb0ac6ba17adcb7db9",
+    "/contents/6a753ac60ac6ba17adcb7dfd",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
     "/surveys/6a2ff295dbf9d3381c67aac7",
@@ -56,6 +61,27 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a753ac6944cbd7f7e2e699d",
+        "in_progress": null,
+        "start": "",
+        "title": "[MD LIST] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+      },
+      {
+        "end": "",
+        "id": "6a741bdb2d7054452231b479",
+        "in_progress": null,
+        "start": "",
+        "title": "[RESERVATION INFORMATION] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+      },
+      {
+        "end": "",
+        "id": "6a741b8d2d7054452231b477",
+        "in_progress": null,
+        "start": "",
+        "title": "[EXHIBITION INFORMATION] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+      },
       {
         "end": "",
         "id": "6a7141d0a2b5b94c2d0a0b9a",
@@ -228,7 +254,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-07 08:14:19 CST",
+  "updated_at": "2026-08-07 11:16:44 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
