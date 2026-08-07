@@ -66,21 +66,21 @@
         "id": "6a753ac6944cbd7f7e2e699d",
         "in_progress": null,
         "start": "",
-        "title": "[MD LIST] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+        "title": ""
       },
       {
         "end": "",
         "id": "6a741bdb2d7054452231b479",
         "in_progress": null,
         "start": "",
-        "title": "[RESERVATION INFORMATION] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+        "title": ""
       },
       {
         "end": "",
         "id": "6a741b8d2d7054452231b477",
         "in_progress": null,
         "start": "",
-        "title": "[EXHIBITION INFORMATION] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+        "title": ""
       },
       {
         "end": "",
@@ -254,7 +254,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-07 14:18:43 CST",
+  "updated_at": "2026-08-07 15:50:45 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
