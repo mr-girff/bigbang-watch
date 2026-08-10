@@ -9,6 +9,7 @@
     "NOTICE-new-6a76961e274b2e59b76b30d3",
     "NOTICE-new-6a7930824da33e2c68c34239",
     "NOTICE-new-6a7930f84da33e2c68c3423a",
+    "NOTICE-new-6a79313e64a0b604b6ceedea",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
@@ -23,6 +24,7 @@
     "sm/contents/6a788ffc0ac6ba17adcb7e97",
     "sm/contents/6a7930820ac6ba17adcb7ebf",
     "sm/contents/6a7930f8f4a3e9602c090dee",
+    "sm/contents/6a79313ef4a3e9602c090df5",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
@@ -62,6 +64,7 @@
     "/contents/6a788ffc0ac6ba17adcb7e97",
     "/contents/6a7930820ac6ba17adcb7ebf",
     "/contents/6a7930f8f4a3e9602c090dee",
+    "/contents/6a79313ef4a3e9602c090df5",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
     "/surveys/6a2ff295dbf9d3381c67aac7",
@@ -75,6 +78,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a79313e64a0b604b6ceedea",
+        "in_progress": null,
+        "start": "",
+        "title": ""
+      },
       {
         "end": "",
         "id": "6a7930f84da33e2c68c3423a",
@@ -296,7 +306,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10 18:14:00 CST",
+  "updated_at": "2026-08-10 19:27:37 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
