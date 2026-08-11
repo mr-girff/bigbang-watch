@@ -11,6 +11,8 @@
     "NOTICE-new-6a7930f84da33e2c68c3423a",
     "NOTICE-new-6a79313e64a0b604b6ceedea",
     "NOTICE-new-6a7add4864a0b604b6ceeef2",
+    "NOTICE-new-6a7ae4ff6ddddd5a4f5c5080",
+    "NOTICE-new-6a7ae59621b9a5256f52e753",
     "NOTICE-new-6a7af2c76ddddd5a4f5c5081",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
@@ -30,6 +32,8 @@
     "sm/contents/6a79e7810ac6ba17adcb7f5d",
     "sm/contents/6a7a823e1711c5778a4fcf7f",
     "sm/contents/6a7add481711c5778a4fcfb7",
+    "sm/contents/6a7ae4fff4a3e9602c090e81",
+    "sm/contents/6a7ae5960ac6ba17adcb7f8a",
     "sm/contents/6a7af2c7f4a3e9602c090e88",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
@@ -74,6 +78,8 @@
     "/contents/6a79e7810ac6ba17adcb7f5d",
     "/contents/6a7a823e1711c5778a4fcf7f",
     "/contents/6a7add481711c5778a4fcfb7",
+    "/contents/6a7ae4fff4a3e9602c090e81",
+    "/contents/6a7ae5960ac6ba17adcb7f8a",
     "/contents/6a7af2c7f4a3e9602c090e88",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
@@ -88,6 +94,20 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a7ae59621b9a5256f52e753",
+        "in_progress": null,
+        "start": "",
+        "title": "[RESERVATION INFORMATION] MAIN EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+      },
+      {
+        "end": "",
+        "id": "6a7ae4ff6ddddd5a4f5c5080",
+        "in_progress": null,
+        "start": "",
+        "title": "[EXHIBITION INFORMATION] MAIN EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+      },
       {
         "end": "",
         "id": "6a7af2c76ddddd5a4f5c5081",
@@ -330,7 +350,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-11 18:32:20 CST",
+  "updated_at": "2026-08-11 19:28:56 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
