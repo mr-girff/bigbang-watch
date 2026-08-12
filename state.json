@@ -15,6 +15,7 @@
     "NOTICE-new-6a7ae59621b9a5256f52e753",
     "NOTICE-new-6a7af2c76ddddd5a4f5c5081",
     "NOTICE-new-6a7bce63c331b51d1941fb3a",
+    "NOTICE-new-6a7bcf0632a0525c62349ae1",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
@@ -40,6 +41,7 @@
     "sm/contents/6a7b44850ac6ba17adcb7fac",
     "sm/contents/6a7b44bc1711c5778a4fcfec",
     "sm/contents/6a7bce63f4a3e9602c090eb4",
+    "sm/contents/6a7bcf061711c5778a4fcff4",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
@@ -90,6 +92,7 @@
     "/contents/6a7b44850ac6ba17adcb7fac",
     "/contents/6a7b44bc1711c5778a4fcfec",
     "/contents/6a7bce63f4a3e9602c090eb4",
+    "/contents/6a7bcf061711c5778a4fcff4",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
     "/surveys/6a2ff295dbf9d3381c67aac7",
@@ -103,6 +106,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a7bcf0632a0525c62349ae1",
+        "in_progress": null,
+        "start": "",
+        "title": "[POSTER] MAIN EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION"
+      },
       {
         "end": "",
         "id": "6a7bce63c331b51d1941fb3a",
@@ -366,7 +376,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-12 18:57:27 CST",
+  "updated_at": "2026-08-12 19:45:50 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
