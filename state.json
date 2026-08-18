@@ -22,6 +22,8 @@
     "NOTICE-new-6a7f210c13702c20078ebb0c",
     "NOTICE-new-6a7f22e9cb97f94ca8023fdf",
     "NOTICE-new-6a800b90cb97f94ca8023fe8",
+    "NOTICE-new-6a83ef3a13702c20078ebcbd",
+    "NOTICE-new-6a83f08413702c20078ebcbe",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
@@ -64,6 +66,8 @@
     "sm/contents/6a81ade71711c5778a4fd136",
     "sm/contents/6a832205c870ce7ed4ca3611",
     "sm/contents/6a83a595c870ce7ed4ca3615",
+    "sm/contents/6a83ef3a1711c5778a4fd190",
+    "sm/contents/6a83f084c870ce7ed4ca3637",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
@@ -131,6 +135,8 @@
     "/contents/6a81ade71711c5778a4fd136",
     "/contents/6a832205c870ce7ed4ca3611",
     "/contents/6a83a595c870ce7ed4ca3615",
+    "/contents/6a83ef3a1711c5778a4fd190",
+    "/contents/6a83f084c870ce7ed4ca3637",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
     "/surveys/6a2ff295dbf9d3381c67aac7",
@@ -144,6 +150,20 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a83f08413702c20078ebcbe",
+        "in_progress": null,
+        "start": "",
+        "title": "📱 YG SELECT MD PICK-UP SERVICE DETAIL"
+      },
+      {
+        "end": "",
+        "id": "6a83ef3a13702c20078ebcbd",
+        "in_progress": null,
+        "start": "",
+        "title": "BIGBANG 2026-2027 WORLD TOUR IN GOYANG MERCHANDISE BOOTH 운영 안내 🛍️"
+      },
       {
         "end": "",
         "id": "6a7f22e9cb97f94ca8023fdf",
@@ -456,7 +476,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-18 15:52:26 CST",
+  "updated_at": "2026-08-18 16:28:57 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
