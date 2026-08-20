@@ -28,6 +28,7 @@
     "NOTICE-new-6a843f1813702c20078ebcf8",
     "NOTICE-new-6a852198181409594456e6bc",
     "NOTICE-new-6a859ed9181409594456e800",
+    "NOTICE-new-6a86500561a6000e505d0887",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
@@ -82,6 +83,7 @@
     "sm/contents/6a8585511711c5778a4fd210",
     "sm/contents/6a858ce8fa95b428f4d4d256",
     "sm/contents/6a859ed921dd08686da21dc5",
+    "sm/contents/6a8650051711c5778a4fd21b",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
@@ -161,6 +163,7 @@
     "/contents/6a8585511711c5778a4fd210",
     "/contents/6a858ce8fa95b428f4d4d256",
     "/contents/6a859ed921dd08686da21dc5",
+    "/contents/6a8650051711c5778a4fd21b",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
     "/surveys/6a2ff295dbf9d3381c67aac7",
@@ -174,6 +177,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a86500561a6000e505d0887",
+        "in_progress": null,
+        "start": "",
+        "title": "[안내] BIGBANG ‘BiiiG’ 응원법 안내!"
+      },
       {
         "end": "",
         "id": "6a859ed9181409594456e800",
@@ -528,7 +538,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-20 10:14:24 CST",
+  "updated_at": "2026-08-20 11:11:15 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
