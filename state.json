@@ -33,6 +33,7 @@
     "NOTICE-new-6a86500561a6000e505d0887",
     "NOTICE-new-6a86506561a6000e505d0888",
     "NOTICE-new-6a8650a71b393735aab0b551",
+    "NOTICE-new-6a882fc69fb4381cedc046be",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
@@ -92,6 +93,7 @@
     "sm/contents/6a8650051711c5778a4fd21b",
     "sm/contents/6a86506524508020cd687987",
     "sm/contents/6a8650a724508020cd68798b",
+    "sm/contents/6a882fc624508020cd687a38",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
@@ -176,6 +178,7 @@
     "/contents/6a8650051711c5778a4fd21b",
     "/contents/6a86506524508020cd687987",
     "/contents/6a8650a724508020cd68798b",
+    "/contents/6a882fc624508020cd687a38",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
     "/surveys/6a2ff295dbf9d3381c67aac7",
@@ -189,6 +192,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a882fc69fb4381cedc046be",
+        "in_progress": null,
+        "start": "",
+        "title": "[D-3] MAIN EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+      },
       {
         "end": "",
         "id": "6a85a43c181409594456e802",
@@ -578,7 +588,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-21 18:45:27 CST",
+  "updated_at": "2026-08-21 19:19:52 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
