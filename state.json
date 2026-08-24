@@ -34,6 +34,7 @@
     "NOTICE-new-6a86506561a6000e505d0888",
     "NOTICE-new-6a8650a71b393735aab0b551",
     "NOTICE-new-6a882fc69fb4381cedc046be",
+    "NOTICE-new-6a88326ab985712aed006db2",
     "NOTICE-new-6a8a78a8f694d97e2d42a272",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
@@ -95,6 +96,7 @@
     "sm/contents/6a86506524508020cd687987",
     "sm/contents/6a8650a724508020cd68798b",
     "sm/contents/6a882fc624508020cd687a38",
+    "sm/contents/6a88326924508020cd687a3c",
     "sm/contents/6a8a78a80fc8653b54b41ec7",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
@@ -181,6 +183,7 @@
     "/contents/6a86506524508020cd687987",
     "/contents/6a8650a724508020cd68798b",
     "/contents/6a882fc624508020cd687a38",
+    "/contents/6a88326924508020cd687a3c",
     "/contents/6a8a78a80fc8653b54b41ec7",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
@@ -195,6 +198,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a88326ab985712aed006db2",
+        "in_progress": null,
+        "start": "",
+        "title": "𝗕𝗜𝗚𝗕𝗔𝗡𝗚 𝟮𝟬𝟮𝟲-𝟮𝟬𝟮𝟳 𝗪𝗢𝗥𝗟𝗗 𝗧𝗢𝗨𝗥 𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟 𝗠𝗘𝗥𝗖𝗛 𝗢𝗡𝗟𝗜𝗡𝗘 𝗦𝗧𝗢𝗥𝗘 𝗢𝗣𝗘𝗡"
+      },
       {
         "end": "",
         "id": "6a8a78a8f694d97e2d42a272",
@@ -598,7 +608,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-24 07:55:57 CST",
+  "updated_at": "2026-08-24 09:04:01 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
