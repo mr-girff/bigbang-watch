@@ -37,6 +37,7 @@
     "NOTICE-new-6a88326ab985712aed006db2",
     "NOTICE-new-6a8a78a8f694d97e2d42a272",
     "NOTICE-new-6a8bf5beb0aaa3701160c573",
+    "NOTICE-new-6a8c260ec561984ae383b4be",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
@@ -101,6 +102,7 @@
     "sm/contents/6a8a78a80fc8653b54b41ec7",
     "sm/contents/6a8bf5bed99bb6157ac0ed1b",
     "sm/contents/6a8c08220fc8653b54b41f24",
+    "sm/contents/6a8c260e0fc8653b54b41f31",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
@@ -190,6 +192,7 @@
     "/contents/6a8a78a80fc8653b54b41ec7",
     "/contents/6a8bf5bed99bb6157ac0ed1b",
     "/contents/6a8c08220fc8653b54b41f24",
+    "/contents/6a8c260e0fc8653b54b41f31",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
     "/surveys/6a2ff295dbf9d3381c67aac7",
@@ -203,6 +206,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a8c260ec561984ae383b4be",
+        "in_progress": null,
+        "start": "",
+        "title": "[D-DAY] MAIN EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
+      },
       {
         "end": "",
         "id": "6a8bf5beb0aaa3701160c573",
@@ -531,13 +541,6 @@
         "in_progress": null,
         "start": "",
         "title": "[NOTICE] BIGBANG OFFICIAL 6th V.I.P OPEN"
-      },
-      {
-        "end": "",
-        "id": "69fd86d32b6ffe0098a8935e",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 20th Anniversary Project: Notice on Fan-Made Projects (Fan Support)"
       }
     ],
     "SURVEY": [
@@ -613,7 +616,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-24 19:52:12 CST",
+  "updated_at": "2026-08-24 20:37:17 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
