@@ -43,6 +43,8 @@
     "NOTICE-new-6a8e4a5800d70108453a6430",
     "NOTICE-new-6a8e4a6300d70108453a6431",
     "NOTICE-new-6a8eb40200d70108453a64aa",
+    "NOTICE-new-6a90f12e70bb125adceb2f58",
+    "NOTICE-new-6a90f13a880d7a0fabce373d",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
@@ -113,11 +115,11 @@
     "sm/contents/6a8e4a58a1b3aa2e013d0b00",
     "sm/contents/6a8e4a6343f12b6e1b69c4c0",
     "sm/contents/6a8eb402b217a72078b88790",
+    "sm/contents/6a90f12d7d9c5503f960db07",
+    "sm/contents/6a90f13a92c7d676b06a746a",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
-    "/contents/69fd86d20aec0a4d96d03fe5",
-    "/contents/6a06cbfc82495460eb4b2907",
     "/contents/6a09535bb3f81c194a2bf45b",
     "/contents/6a2622b79b585d36b1a4e936",
     "/contents/6a2a1c2e9e05ff569fb8dd72",
@@ -206,6 +208,8 @@
     "/contents/6a8e4a58a1b3aa2e013d0b00",
     "/contents/6a8e4a6343f12b6e1b69c4c0",
     "/contents/6a8eb402b217a72078b88790",
+    "/contents/6a90f12d7d9c5503f960db07",
+    "/contents/6a90f13a92c7d676b06a746a",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
     "/surveys/6a2ff295dbf9d3381c67aac7",
@@ -219,6 +223,20 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a90f13a880d7a0fabce373d",
+        "in_progress": null,
+        "start": "",
+        "title": "[SINGAPORE] BIGBANG 2026-2027 WORLD TOUR IN SINGAPORE Additional Show Details Notice"
+      },
+      {
+        "end": "",
+        "id": "6a90f12e70bb125adceb2f58",
+        "in_progress": null,
+        "start": "",
+        "title": "[TAIPEI] BIGBANG 2026-2027 WORLD TOUR IN TAIPEI Additional Show Details Notice"
+      },
       {
         "end": "",
         "id": "6a8e4a6300d70108453a6431",
@@ -540,20 +558,6 @@
         "in_progress": null,
         "start": "",
         "title": "BIGBANG 2026-2027 WORLD TOUR IN TAIPEI Concert Ticket Details Notice"
-      },
-      {
-        "end": "",
-        "id": "6a5dee68b73dda538abc368d",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026-2027 WORLD TOUR IN SYDNEY Concert Ticket Details Notice"
-      },
-      {
-        "end": "",
-        "id": "6a4c1fde97c71f1017e545be",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026 WORLD TOUR IN GOYANG presented by Coupang Play - ADDITIONAL TICKET SALES ANNOUNCEMENT"
       }
     ],
     "SURVEY": [
@@ -629,7 +633,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-28 11:34:21 CST",
+  "updated_at": "2026-08-28 23:39:56 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
