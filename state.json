@@ -38,6 +38,10 @@
     "NOTICE-new-6a8a78a8f694d97e2d42a272",
     "NOTICE-new-6a8bf5beb0aaa3701160c573",
     "NOTICE-new-6a8c260ec561984ae383b4be",
+    "NOTICE-new-6a8e4a38bf96394b8e889573",
+    "NOTICE-new-6a8e4a4c880d7a0fabce34be",
+    "NOTICE-new-6a8e4a5800d70108453a6430",
+    "NOTICE-new-6a8e4a6300d70108453a6431",
     "NOTICE-new-6a8eb40200d70108453a64aa",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "sm/contents/6a698e423a5e8839bab2bb04",
@@ -104,12 +108,14 @@
     "sm/contents/6a8bf5bed99bb6157ac0ed1b",
     "sm/contents/6a8c08220fc8653b54b41f24",
     "sm/contents/6a8c260e0fc8653b54b41f31",
+    "sm/contents/6a8e4a38a1b3aa2e013d0af7",
+    "sm/contents/6a8e4a4ca1b3aa2e013d0afb",
+    "sm/contents/6a8e4a58a1b3aa2e013d0b00",
+    "sm/contents/6a8e4a6343f12b6e1b69c4c0",
     "sm/contents/6a8eb402b217a72078b88790",
     "sm/surveys/6a5dc00d4b0dde751c709e2b"
   ],
   "sitemap": [
-    "/contents/69e70f50844bca5a5c37498d",
-    "/contents/69f48c2e844bca5a5c374d79",
     "/contents/69fd86d20aec0a4d96d03fe5",
     "/contents/6a06cbfc82495460eb4b2907",
     "/contents/6a09535bb3f81c194a2bf45b",
@@ -195,6 +201,10 @@
     "/contents/6a8bf5bed99bb6157ac0ed1b",
     "/contents/6a8c08220fc8653b54b41f24",
     "/contents/6a8c260e0fc8653b54b41f31",
+    "/contents/6a8e4a38a1b3aa2e013d0af7",
+    "/contents/6a8e4a4ca1b3aa2e013d0afb",
+    "/contents/6a8e4a58a1b3aa2e013d0b00",
+    "/contents/6a8e4a6343f12b6e1b69c4c0",
     "/contents/6a8eb402b217a72078b88790",
     "/surveys/6a2bb6378bd8cd44a4872137",
     "/surveys/6a2ff26fe08d334b9b09174b",
@@ -209,6 +219,34 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a8e4a6300d70108453a6431",
+        "in_progress": null,
+        "start": "",
+        "title": "[KAOHSIUNG] BIGBANG 2026-2027 WORLD TOUR IN KAOHSIUNG Concert Ticket Details Notice"
+      },
+      {
+        "end": "",
+        "id": "6a8e4a5800d70108453a6430",
+        "in_progress": null,
+        "start": "",
+        "title": "[KUALA LUMPUR] BIGBANG 2026-2027 WORLD TOUR IN KUALA LUMPUR Concert Ticket Details Notice"
+      },
+      {
+        "end": "",
+        "id": "6a8e4a4c880d7a0fabce34be",
+        "in_progress": null,
+        "start": "",
+        "title": "[MANILA] BIGBANG 2026-2027 WORLD TOUR IN MANILA Concert Ticket Details Notice"
+      },
+      {
+        "end": "",
+        "id": "6a8e4a38bf96394b8e889573",
+        "in_progress": null,
+        "start": "",
+        "title": "[JAKARTA] BIGBANG 2026-2027 WORLD TOUR IN JAKARTA Concert Ticket Details Notice"
+      },
       {
         "end": "",
         "id": "6a8eb40200d70108453a64aa",
@@ -516,34 +554,6 @@
         "in_progress": null,
         "start": "",
         "title": "BIGBANG 2026 WORLD TOUR IN GOYANG presented by Coupang Play - ADDITIONAL TICKET SALES ANNOUNCEMENT"
-      },
-      {
-        "end": "",
-        "id": "6a3ec9dae2b7f40242454e12",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026 WORLD TOUR IN OAKLAND Additional Show Details"
-      },
-      {
-        "end": "",
-        "id": "6a2fbd10e380302acffe648a",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026 WORLD TOUR - NORTH AMERICA & EUROPE Concert Ticket Details Notice"
-      },
-      {
-        "end": "",
-        "id": "6a2fba66e2b7f402424543ea",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026 WORLD TOUR IN GOYANG presented by Coupang Play - V.I.P PRESALE GUIDE"
-      },
-      {
-        "end": "",
-        "id": "6a2b9a6ee380302acffe6359",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026 WORLD TOUR IN GOYANG presented by Coupang Play ANNOUNCEMENT"
       }
     ],
     "SURVEY": [
@@ -619,7 +629,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-28 03:04:07 CST",
+  "updated_at": "2026-08-28 11:34:21 CST",
   "yg": {
     "coming_soon": true,
     "found": true,
