@@ -45,8 +45,10 @@
     "NOTICE-new-6a8eb40200d70108453a64aa",
     "NOTICE-new-6a90f12e70bb125adceb2f58",
     "NOTICE-new-6a90f13a880d7a0fabce373d",
+    "NOTICE-new-6a91139d70bb125adceb2f5b",
     "NOTICE-new-6a94f24247f9127b15f82e8d",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
+    "SURVEY-new-6a9157fc880d7a0fabce37b9",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
     "sm/contents/6a713bc32c67411c1ac225f5",
@@ -118,14 +120,15 @@
     "sm/contents/6a8eb402b217a72078b88790",
     "sm/contents/6a90f12d7d9c5503f960db07",
     "sm/contents/6a90f13a92c7d676b06a746a",
+    "sm/contents/6a91139d7d9c5503f960db1d",
     "sm/contents/6a94f24251ca964536b6ebfd",
     "sm/contents/6a952c6851ca964536b6ec2c",
     "sm/surveys/6a5dc00d4b0dde751c709e2b",
+    "sm/surveys/6a9157fc4390fd4dc3bb62ee",
+    "yg-open",
     "yg-row-14106501"
   ],
   "sitemap": [
-    "/contents/6a2a1c2e9e05ff569fb8dd72",
-    "/contents/6a2b9a6eaa494505976ce223",
     "/contents/6a2ebac35b262543059f35cb",
     "/contents/6a2fba6670db3f5791a2b83c",
     "/contents/6a2fbd1093b775588acf83db",
@@ -212,6 +215,7 @@
     "/contents/6a8eb402b217a72078b88790",
     "/contents/6a90f12d7d9c5503f960db07",
     "/contents/6a90f13a92c7d676b06a746a",
+    "/contents/6a91139d7d9c5503f960db1d",
     "/contents/6a94f24251ca964536b6ebfd",
     "/contents/6a952c6851ca964536b6ec2c",
     "/surveys/6a2bb6378bd8cd44a4872137",
@@ -223,10 +227,18 @@
     "/surveys/6a5d889e388eec6ef23e87b7",
     "/surveys/6a5db2a64b0dde751c709e27",
     "/surveys/6a5dbb3011e23c5b3836b467",
-    "/surveys/6a5dc00d4b0dde751c709e2b"
+    "/surveys/6a5dc00d4b0dde751c709e2b",
+    "/surveys/6a9157fc4390fd4dc3bb62ee"
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a91139d70bb125adceb2f5b",
+        "in_progress": null,
+        "start": "",
+        "title": "[HONG KONG] BIGBANG 2026-2027 WORLD TOUR IN HONG KONG Concert Ticket Details Notice"
+      },
       {
         "end": "",
         "id": "6a94f24247f9127b15f82e8d",
@@ -555,16 +567,16 @@
         "in_progress": null,
         "start": "",
         "title": "BIGBANG 2026-2027 WORLD TOUR IN BANGKOK Concert Ticket Details Notice"
-      },
-      {
-        "end": "",
-        "id": "6a61a803720c9b439142fd0b",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026-2027 WORLD TOUR IN SINGAPORE Concert Ticket Details Notice"
       }
     ],
     "SURVEY": [
+      {
+        "end": "2026-09-08T16:00:00Z",
+        "id": "6a9157fc880d7a0fabce37b9",
+        "in_progress": true,
+        "start": "2026-09-02T03:00:00Z",
+        "title": "[HONG KONG] BIGBANG V.I.P MEMBERSHIP PRESALE SURVEY FOR BIGBANG 2026-2027 WORLD TOUR IN HONG KONG"
+      },
       {
         "end": "2026-08-07T17:00:00Z",
         "id": "6a5dc00d0c6d7f6fa32b180e",
@@ -637,14 +649,14 @@
       }
     ]
   },
-  "updated_at": "2026-09-02 09:11:25 CST",
+  "updated_at": "2026-09-02 13:49:03 CST",
   "yg": {
-    "coming_soon": true,
+    "coming_soon": false,
     "found": true,
-    "get_tickets": false,
-    "info_url": "",
-    "row_text": "HONG KONG KAI TAK STADIUM 2026.11.13.(FRI) - 11.15.(SUN) COMING SOON",
-    "ticket_url": "",
-    "when": "2026.11.13.(FRI) - 11.15.(SUN)"
+    "get_tickets": true,
+    "info_url": "https://bigbang.bstage.in/contents/6a91139d7d9c5503f960db1d",
+    "row_text": "HONG KONG KAI TAK STADIUM + MORE INFO 2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM GET TICKETS",
+    "ticket_url": "http://www.hkticketing.com",
+    "when": "2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM"
   }
 }
