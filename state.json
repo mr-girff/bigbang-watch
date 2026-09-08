@@ -47,6 +47,7 @@
     "NOTICE-new-6a90f13a880d7a0fabce373d",
     "NOTICE-new-6a91139d70bb125adceb2f5b",
     "NOTICE-new-6a94f24247f9127b15f82e8d",
+    "NOTICE-new-6a9f72b3880d7a0fabce3d81",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "SURVEY-new-6a8fd40c880d7a0fabce3604",
     "SURVEY-new-6a8fda6675d50a42a8c226fb",
@@ -127,6 +128,7 @@
     "sm/contents/6a91139d7d9c5503f960db1d",
     "sm/contents/6a94f24251ca964536b6ebfd",
     "sm/contents/6a952c6851ca964536b6ec2c",
+    "sm/contents/6a9fcea43d74f4211f6c9782",
     "sm/surveys/6a5dc00d4b0dde751c709e2b",
     "sm/surveys/6a8fd40c9aa96020f6388890",
     "sm/surveys/6a8fda664390fd4dc3bb62d6",
@@ -223,7 +225,7 @@
     "/contents/6a91139d7d9c5503f960db1d",
     "/contents/6a94f24251ca964536b6ebfd",
     "/contents/6a952c6851ca964536b6ec2c",
-    "/surveys/6a2ff26fe08d334b9b09174b",
+    "/contents/6a9fcea43d74f4211f6c9782",
     "/surveys/6a2ff295dbf9d3381c67aac7",
     "/surveys/6a2ff2b2dbf9d3381c67aad0",
     "/surveys/6a2ff2d0dbf9d3381c67aada",
@@ -240,6 +242,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6a9f72b3880d7a0fabce3d81",
+        "in_progress": null,
+        "start": "",
+        "title": "[NOTICE] BIGBANG POP Free Pass Now Available"
+      },
       {
         "end": "",
         "id": "6a91139d70bb125adceb2f5b",
@@ -568,13 +577,6 @@
         "in_progress": null,
         "start": "",
         "title": "BIGBANG 2026-2027 WORLD TOUR IN HANOI Concert Ticket Details Notice"
-      },
-      {
-        "end": "",
-        "id": "6a61a8204771ec5193d69337",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026-2027 WORLD TOUR IN BANGKOK Concert Ticket Details Notice"
       }
     ],
     "SURVEY": [
@@ -685,7 +687,7 @@
       }
     ]
   },
-  "updated_at": "2026-09-08 15:25:32 CST",
+  "updated_at": "2026-09-08 20:13:30 CST",
   "yg": {
     "coming_soon": false,
     "found": true,
