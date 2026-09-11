@@ -687,14 +687,14 @@
       }
     ]
   },
-  "updated_at": "2026-09-11 19:42:42 CST",
+  "updated_at": "2026-09-11 23:12:32 CST",
   "yg": {
     "coming_soon": false,
     "found": true,
     "get_tickets": true,
     "info_url": "https://bigbang.bstage.in/contents/6a91139d7d9c5503f960db1d",
     "row_text": "HONG KONG KAI TAK STADIUM + MORE INFO 2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM GET TICKETS",
-    "ticket_url": "http://www.hkticketing.com",
+    "ticket_url": "https://hkt.hkticketing.com/en/#/allEvents/detail?projectId=50000001568003",
     "when": "2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM"
   }
 }
