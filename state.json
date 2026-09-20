@@ -48,6 +48,7 @@
     "NOTICE-new-6a91139d70bb125adceb2f5b",
     "NOTICE-new-6a94f24247f9127b15f82e8d",
     "NOTICE-new-6a9f72b3880d7a0fabce3d81",
+    "NOTICE-new-6aaf9264c978285229e7ee60",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "SURVEY-new-6a8fd40c880d7a0fabce3604",
     "SURVEY-new-6a8fda6675d50a42a8c226fb",
@@ -131,6 +132,7 @@
     "sm/contents/6a9fcea43d74f4211f6c9782",
     "sm/contents/6aa4b22d87e70f1fa0f5a56e",
     "sm/contents/6aa7b7be2b69b278c94adac7",
+    "sm/contents/6aaf92645f4edf20e682f70d",
     "sm/surveys/6a5dc00d4b0dde751c709e2b",
     "sm/surveys/6a8fd40c9aa96020f6388890",
     "sm/surveys/6a8fda664390fd4dc3bb62d6",
@@ -230,7 +232,7 @@
     "/contents/6a9fcea43d74f4211f6c9782",
     "/contents/6aa4b22d87e70f1fa0f5a56e",
     "/contents/6aa7b7be2b69b278c94adac7",
-    "/surveys/6a2ff2d0dbf9d3381c67aada",
+    "/contents/6aaf92645f4edf20e682f70d",
     "/surveys/6a3de7ea4b0dde751c709c09",
     "/surveys/6a5d889e388eec6ef23e87b7",
     "/surveys/6a5db2a64b0dde751c709e27",
@@ -244,6 +246,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6aaf9264c978285229e7ee60",
+        "in_progress": null,
+        "start": "",
+        "title": "[JAKARTA] BIGBANG 2026-2027 WORLD TOUR IN JAKARTA Additional Show Details Notice"
+      },
       {
         "end": "",
         "id": "6a9f72b3880d7a0fabce3d81",
@@ -572,13 +581,6 @@
         "in_progress": null,
         "start": "",
         "title": "BIGBANG 2026-2027 WORLD TOUR – Additional VIP Pit Tickets for Oakland and East Rutherford onsale August 7th"
-      },
-      {
-        "end": "",
-        "id": "6a698e428d4b2134eec839bb",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026-2027 WORLD TOUR IN HANOI Concert Ticket Details Notice"
       }
     ],
     "SURVEY": [
@@ -689,7 +691,7 @@
       }
     ]
   },
-  "updated_at": "2026-09-20 16:14:57 CST",
+  "updated_at": "2026-09-20 21:04:04 CST",
   "yg": {
     "coming_soon": false,
     "found": true,
