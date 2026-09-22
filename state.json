@@ -50,6 +50,7 @@
     "NOTICE-new-6a9f72b3880d7a0fabce3d81",
     "NOTICE-new-6aab6ec69fa4af0e83c63f5d",
     "NOTICE-new-6aaf9264c978285229e7ee60",
+    "NOTICE-new-6ab21cfd1409de23468e2e2a",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "SURVEY-new-6a8fd40c880d7a0fabce3604",
     "SURVEY-new-6a8fda6675d50a42a8c226fb",
@@ -135,6 +136,7 @@
     "sm/contents/6aa7b7be2b69b278c94adac7",
     "sm/contents/6aab6ec6657d4b0cabf7b903",
     "sm/contents/6aaf92645f4edf20e682f70d",
+    "sm/contents/6ab21cfc4d61ad3f52f16978",
     "sm/surveys/6a5dc00d4b0dde751c709e2b",
     "sm/surveys/6a8fd40c9aa96020f6388890",
     "sm/surveys/6a8fda664390fd4dc3bb62d6",
@@ -146,7 +148,6 @@
     "yg-row-93621964"
   ],
   "sitemap": [
-    "/contents/6a3b2d225a5138355511bb14",
     "/contents/6a3ec9da9ee4485887bb9e23",
     "/contents/6a41d43adbe9b9754ea74dd8",
     "/contents/6a4c1fdd9ee4485887bba141",
@@ -236,6 +237,7 @@
     "/contents/6aa7b7be2b69b278c94adac7",
     "/contents/6aab6ec6657d4b0cabf7b903",
     "/contents/6aaf92645f4edf20e682f70d",
+    "/contents/6ab21cfc4d61ad3f52f16978",
     "/surveys/6a3de7ea4b0dde751c709c09",
     "/surveys/6a5d889e388eec6ef23e87b7",
     "/surveys/6a5db2a64b0dde751c709e27",
@@ -249,6 +251,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6ab21cfd1409de23468e2e2a",
+        "in_progress": null,
+        "start": "",
+        "title": "[KUALA LUMPUR] BIGBANG 2026-2027 WORLD TOUR IN KUALA LUMPUR Additional Show Details Notice"
+      },
       {
         "end": "",
         "id": "6aab6ec69fa4af0e83c63f5d",
@@ -577,13 +586,6 @@
         "in_progress": null,
         "start": "",
         "title": "[RESERVATION INFORMATION] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
-      },
-      {
-        "end": "",
-        "id": "6a741b8d2d7054452231b477",
-        "in_progress": null,
-        "start": "",
-        "title": "[EXHIBITION INFORMATION] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
       }
     ],
     "SURVEY": [
@@ -694,7 +696,7 @@
       }
     ]
   },
-  "updated_at": "2026-09-22 14:12:12 CST",
+  "updated_at": "2026-09-22 19:38:25 CST",
   "yg": {
     "coming_soon": false,
     "found": true,
