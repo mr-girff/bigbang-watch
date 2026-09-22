@@ -48,6 +48,7 @@
     "NOTICE-new-6a91139d70bb125adceb2f5b",
     "NOTICE-new-6a94f24247f9127b15f82e8d",
     "NOTICE-new-6a9f72b3880d7a0fabce3d81",
+    "NOTICE-new-6aab6ec69fa4af0e83c63f5d",
     "NOTICE-new-6aaf9264c978285229e7ee60",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "SURVEY-new-6a8fd40c880d7a0fabce3604",
@@ -132,6 +133,7 @@
     "sm/contents/6a9fcea43d74f4211f6c9782",
     "sm/contents/6aa4b22d87e70f1fa0f5a56e",
     "sm/contents/6aa7b7be2b69b278c94adac7",
+    "sm/contents/6aab6ec6657d4b0cabf7b903",
     "sm/contents/6aaf92645f4edf20e682f70d",
     "sm/surveys/6a5dc00d4b0dde751c709e2b",
     "sm/surveys/6a8fd40c9aa96020f6388890",
@@ -140,10 +142,10 @@
     "sm/surveys/6a8fe5b4f96937336a415dc4",
     "sm/surveys/6a9157fc4390fd4dc3bb62ee",
     "yg-open",
-    "yg-row-14106501"
+    "yg-row-14106501",
+    "yg-row-93621964"
   ],
   "sitemap": [
-    "/contents/6a39dc8b5a5138355511ba9c",
     "/contents/6a3b2d225a5138355511bb14",
     "/contents/6a3ec9da9ee4485887bb9e23",
     "/contents/6a41d43adbe9b9754ea74dd8",
@@ -232,6 +234,7 @@
     "/contents/6a9fcea43d74f4211f6c9782",
     "/contents/6aa4b22d87e70f1fa0f5a56e",
     "/contents/6aa7b7be2b69b278c94adac7",
+    "/contents/6aab6ec6657d4b0cabf7b903",
     "/contents/6aaf92645f4edf20e682f70d",
     "/surveys/6a3de7ea4b0dde751c709c09",
     "/surveys/6a5d889e388eec6ef23e87b7",
@@ -246,6 +249,13 @@
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6aab6ec69fa4af0e83c63f5d",
+        "in_progress": null,
+        "start": "",
+        "title": "[HONG KONG] BIGBANG 2026-2027 WORLD TOUR IN HONG KONG Additional Show Details Notice"
+      },
       {
         "end": "",
         "id": "6aaf9264c978285229e7ee60",
@@ -574,13 +584,6 @@
         "in_progress": null,
         "start": "",
         "title": "[EXHIBITION INFORMATION] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
-      },
-      {
-        "end": "",
-        "id": "6a7141d0a2b5b94c2d0a0b9a",
-        "in_progress": null,
-        "start": "",
-        "title": "BIGBANG 2026-2027 WORLD TOUR – Additional VIP Pit Tickets for Oakland and East Rutherford onsale August 7th"
       }
     ],
     "SURVEY": [
@@ -691,14 +694,14 @@
       }
     ]
   },
-  "updated_at": "2026-09-22 09:10:46 CST",
+  "updated_at": "2026-09-22 14:12:12 CST",
   "yg": {
     "coming_soon": false,
     "found": true,
     "get_tickets": true,
-    "info_url": "https://bigbang.bstage.in/contents/6a91139d7d9c5503f960db1d",
-    "row_text": "HONG KONG KAI TAK STADIUM + MORE INFO 2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM GET TICKETS",
+    "info_url": "https://bigbang.bstage.in/contents/6aab6ec6657d4b0cabf7b903",
+    "row_text": "HONG KONG KAI TAK STADIUM + MORE INFO 2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM / 11.17.(TUE) 7:00PM GET TICKETS",
     "ticket_url": "https://hkt.hkticketing.com/en/#/allEvents/detail?projectId=50000001568003",
-    "when": "2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM"
+    "when": "2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM / 11.17.(TUE) 7:00PM"
   }
 }
