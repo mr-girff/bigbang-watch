@@ -51,12 +51,14 @@
     "NOTICE-new-6aab6ec69fa4af0e83c63f5d",
     "NOTICE-new-6aaf9264c978285229e7ee60",
     "NOTICE-new-6ab21cfd1409de23468e2e2a",
+    "NOTICE-new-6ae99cccebf6d57668bcf7a0",
     "SURVEY-new-6a5dc00d0c6d7f6fa32b180e",
     "SURVEY-new-6a8fd40c880d7a0fabce3604",
     "SURVEY-new-6a8fda6675d50a42a8c226fb",
     "SURVEY-new-6a8fe30875d50a42a8c22734",
     "SURVEY-new-6a8fe5b5880d7a0fabce36d9",
     "SURVEY-new-6a9157fc880d7a0fabce37b9",
+    "SURVEY-new-6ae97eedc969a274b1715e7b",
     "sm/contents/6a698e423a5e8839bab2bb04",
     "sm/contents/6a6ab2373a5e8839bab2bb64",
     "sm/contents/6a713bc32c67411c1ac225f5",
@@ -138,19 +140,19 @@
     "sm/contents/6aaf92645f4edf20e682f70d",
     "sm/contents/6ab21cfc4d61ad3f52f16978",
     "sm/contents/6ad09622049710215c68329a",
+    "sm/contents/6ae99ccc8d38027a8d6b8bb9",
     "sm/surveys/6a5dc00d4b0dde751c709e2b",
     "sm/surveys/6a8fd40c9aa96020f6388890",
     "sm/surveys/6a8fda664390fd4dc3bb62d6",
     "sm/surveys/6a8fe3079aa96020f6388894",
     "sm/surveys/6a8fe5b4f96937336a415dc4",
     "sm/surveys/6a9157fc4390fd4dc3bb62ee",
+    "sm/surveys/6ae97eedcb9f615f9924e37e",
     "yg-open",
     "yg-row-14106501",
     "yg-row-93621964"
   ],
   "sitemap": [
-    "/contents/6a41d43adbe9b9754ea74dd8",
-    "/contents/6a4c1fdd9ee4485887bba141",
     "/contents/6a5060d681d1df266e799b05",
     "/contents/6a5609336a78ec74c0fdc480",
     "/contents/6a564f356a78ec74c0fdc4a5",
@@ -239,6 +241,7 @@
     "/contents/6aaf92645f4edf20e682f70d",
     "/contents/6ab21cfc4d61ad3f52f16978",
     "/contents/6ad09622049710215c68329a",
+    "/contents/6ae99ccc8d38027a8d6b8bb9",
     "/surveys/6a3de7ea4b0dde751c709c09",
     "/surveys/6a5d889e388eec6ef23e87b7",
     "/surveys/6a5db2a64b0dde751c709e27",
@@ -248,10 +251,18 @@
     "/surveys/6a8fda664390fd4dc3bb62d6",
     "/surveys/6a8fe3079aa96020f6388894",
     "/surveys/6a8fe5b4f96937336a415dc4",
-    "/surveys/6a9157fc4390fd4dc3bb62ee"
+    "/surveys/6a9157fc4390fd4dc3bb62ee",
+    "/surveys/6ae97eedcb9f615f9924e37e"
   ],
   "tags": {
     "NOTICE": [
+      {
+        "end": "",
+        "id": "6ae99cccebf6d57668bcf7a0",
+        "in_progress": null,
+        "start": "",
+        "title": "[LOS ANGELES] BIGBANG 2026-2027 WORLD TOUR IN LOS ANGELES Concert Ticket Details Notice"
+      },
       {
         "end": "",
         "id": "6ab21cfd1409de23468e2e2a",
@@ -580,16 +591,16 @@
         "in_progress": null,
         "start": "",
         "title": "[MD LIST] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
-      },
-      {
-        "end": "",
-        "id": "6a741bdb2d7054452231b479",
-        "in_progress": null,
-        "start": "",
-        "title": "[RESERVATION INFORMATION] PREQUEL EXHIBITION | COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION IN SEOUL"
       }
     ],
     "SURVEY": [
+      {
+        "end": "2026-11-09T06:00:00Z",
+        "id": "6ae97eedc969a274b1715e7b",
+        "in_progress": true,
+        "start": "2026-11-03T16:00:00Z",
+        "title": "[LOS ANGELES] BIGBANG V.I.P MEMBERSHIP PRESALE SURVEY FOR BIGBANG 2026-2027 WORLD TOUR IN LOS ANGELES"
+      },
       {
         "end": "2026-09-11T16:00:00Z",
         "id": "6a8fe5b5880d7a0fabce36d9",
@@ -697,7 +708,7 @@
       }
     ]
   },
-  "updated_at": "2026-11-03 19:53:35 CST",
+  "updated_at": "2026-11-04 02:56:15 CST",
   "yg": {
     "coming_soon": false,
     "found": true,
