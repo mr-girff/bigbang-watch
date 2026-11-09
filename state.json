@@ -597,7 +597,7 @@
       {
         "end": "2026-11-09T06:00:00Z",
         "id": "6ae97eedc969a274b1715e7b",
-        "in_progress": true,
+        "in_progress": false,
         "start": "2026-11-03T16:00:00Z",
         "title": "[LOS ANGELES] BIGBANG V.I.P MEMBERSHIP PRESALE SURVEY FOR BIGBANG 2026-2027 WORLD TOUR IN LOS ANGELES"
       },
@@ -708,7 +708,7 @@
       }
     ]
   },
-  "updated_at": "2026-11-09 10:29:08 CST",
+  "updated_at": "2026-11-09 18:09:16 CST",
   "yg": {
     "coming_soon": false,
     "found": true,
