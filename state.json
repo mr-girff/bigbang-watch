@@ -150,6 +150,7 @@
     "sm/surveys/6ae97eedcb9f615f9924e37e",
     "yg-open",
     "yg-row-14106501",
+    "yg-row-67886354",
     "yg-row-93621964"
   ],
   "sitemap": [
@@ -708,14 +709,14 @@
       }
     ]
   },
-  "updated_at": "2026-11-18 05:13:46 CST",
+  "updated_at": "2026-11-18 10:54:49 CST",
   "yg": {
     "coming_soon": false,
     "found": true,
-    "get_tickets": true,
+    "get_tickets": false,
     "info_url": "https://bigbang.bstage.in/contents/6aab6ec6657d4b0cabf7b903",
-    "row_text": "HONG KONG KAI TAK STADIUM + MORE INFO 2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM / 11.17.(TUE) 7:00PM GET TICKETS",
-    "ticket_url": "https://hkt.hkticketing.com/en/#/allEvents/detail?projectId=50000001568003",
+    "row_text": "HONG KONG KAI TAK STADIUM + MORE INFO 2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM / 11.17.(TUE) 7:00PM SOLD OUT",
+    "ticket_url": "",
     "when": "2026.11.13.(FRI) 7:00PM / 11.14.(SAT) 6:00PM / 11.15.(SUN) 6:00PM / 11.17.(TUE) 7:00PM"
   }
 }
